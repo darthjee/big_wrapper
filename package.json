@@ -1,5 +1,5 @@
 {
-  "name" : "big_wrap",
+  "name" : "big_wrapper",
   "description" : "Wrap to BigQuery API",
   "author" : "Fernando 'darthjee' Favini",
   "version" : "0.0.1",
