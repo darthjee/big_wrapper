@@ -5,7 +5,7 @@
     this.table = dataset.table(name);
     this.name = name;
 
-    _.bindAll(this, '_insertionError');
+    _.bindAll(this, '_insertionCallback', '_selectCallback');
   }
 
   var fn = Table.prototype;
@@ -37,18 +37,21 @@
 
   fn.select = function(select, options) {
     options = _.extend(this._blankCallbacks(), options || {});
-    query =  'SELECT ' + select + ' FROM ' + this.name;
+    var that = this,
+        query =  'SELECT ' + select + ' FROM ' + this.name;
 
     this.table.query({
       query: query
-    }, this.selectCallback);
+    }, function(err, response) {
+      that._selectCallback(err, response, options);
+    });
   };
-  
-  fn.selectCallback = function(err, response) {
+ 
+  fn._selectCallback = function(err, response, options) {
     if (err) {
       options.error.call(this, err);
     } else {
-      options.error.call(this, response);
+      options.success.call(this, response);
     }
   };
 
