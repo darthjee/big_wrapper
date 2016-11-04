@@ -2,7 +2,7 @@
   "name" : "big_wrapper",
   "description" : "Wrap to BigQuery API",
   "author" : "Fernando 'darthjee' Favini",
-  "version" : "0.0.1",
+  "version" : "0.0.2",
   "dependencies" : {
     "underscore" : "~1.6.x",
     "google-cloud" : "^0.43.0"
