@@ -28,7 +28,7 @@
   };
   
   fn._insertionCallback = function (err, insertErrors, apiResponse, options) {
-    if (err || insertErrors) {
+    if (err) {
       options.error.call(this, err, insertErrors);
     } else {
       options.success.call(this, apiResponse);
